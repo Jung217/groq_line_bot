@@ -53,9 +53,6 @@ def handle_message(event):
                             label="Gemma 7b",
                             text="gemma-7b-it"),
                         MessageAction( 
-                            label="LLaMA3 8b",
-                            text="llama3-8b-8192"),
-                        MessageAction( 
                             label="LLaMA3 70b",
                             text="llama3-70b-8192"),
                         MessageAction( 
@@ -69,7 +66,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
 
     elif re.match("gemma-7b-it",message) or re.match("llama3-8b-8192",message) or re.match("llama3-70b-8192",message) or re.match("mixtral-8x7b-32768",message):
-        mmodel = message
+        #mmodel = message
         remessage = "Model changed."
         line_bot_api.reply_message(event.reply_token, remessage)
     else:
