@@ -36,7 +36,7 @@ def handle_message(event):
     message = event.message.text
 
     if re.match("提示",message):
-        remessage = "請自由發問，預設使用繁體中文回答。\n輸入'模型'可以更換模型\n\n如果我開始瘋狂說英文\n請對我說'Speak Chinese'\n\nThank you :)"
+        remessage = "預設使用繁體中文回答。\n輸入'模型'可以更換模型\n\n如果我開始瘋狂說英文\n請對我說'Speak Chinese'\n\nThank you :)"
         line_bot_api.reply_message(event.reply_token,TextSendMessage(remessage))        
     
     elif re.match("模型",message):
