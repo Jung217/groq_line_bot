@@ -16,7 +16,7 @@ line_bot_api = LineBotApi('lSYbbaNCUPI3GcZEak+tnX/4uEJCF/KjOkqXj5DYVQasBdf5NBixX
 handler = WebhookHandler('9b1a4bc1445da064bf4dd503a44944b7')
 
 line_bot_api.push_message('U9331f84776672cb357b3b8b9f89ebeaf', TextSendMessage(text='You can start !'))
-mmodel = "llama3-8b-8192"
+#mmodel = "llama3-8b-8192"
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -84,7 +84,7 @@ def handle_message(event):
                     "content": message + "，用繁體中文回答",
                 }
             ],
-            model=mmodel,
+            model="llama3-70b-8192",
         )  
         line_bot_api.reply_message(event.reply_token,TextSendMessage(chat_completion.choices[0].message.content))
 
