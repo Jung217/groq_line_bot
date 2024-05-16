@@ -66,9 +66,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
 
     elif re.match("gemma-7b-it",message) or re.match("llama3-8b-8192",message) or re.match("llama3-70b-8192",message) or re.match("mixtral-8x7b-32768",message):
-        #mmodel = message
-        #remessage = "Model changed."
-        line_bot_api.reply_message(event.reply_token, "Model changed.")
+        line_bot_api.reply_message(event.reply_token, TextSendMessage("Model changed."))
     else:
         client = Groq(
             api_key="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",
