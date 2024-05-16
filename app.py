@@ -5,6 +5,7 @@ from linebot.models import *
 import re
 import os
 import configparser
+from groq import Groq
 
 app = Flask(__name__)
 
@@ -38,7 +39,7 @@ def handle_message(event):
     if re.match("提示",message):
         remessage = "觸發驚喜的密語:\n\n恭喜\n今天我生日\n金門大學在哪\n\n試著輸入看看吧!"
         line_bot_api.reply_message(event.reply_token,TextSendMessage(remessage))        
-
+    
     elif re.match("運勢",message):
         buttons_template_message = TemplateSendMessage(
         alt_text = "運勢",
@@ -49,12 +50,6 @@ def handle_message(event):
                     title = "讓貓貓企鵝小助手\n為你測試運氣吧!", 
                     text ="請選擇一種方法測", 
                     actions =[
-                        MessageAction( 
-                            label="擲筊",
-                            text="擲筊"),
-                        MessageAction( 
-                            label="抽籤",
-                            text="抽籤"),
                         MessageAction( 
                             label="星座",
                             text="星座運勢")
@@ -73,7 +68,20 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, image_message)
 
     else:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(message))
+        client = Groq(
+            api_key="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",
+        )
+
+        chat_completion = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": message + "，遊用繁體中文回答",
+                }
+            ],
+            model="llama3-8b-8192",
+        )  
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(chat_completion.choices[0].message.content))
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
