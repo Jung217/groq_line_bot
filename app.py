@@ -36,7 +36,7 @@ def handle_message(event):
     message = event.message.text
 
     if re.match("提示",message):
-        remessage = "預設使用繁體中文回答。\n輸入'模型'可以更換模型\n\n如果我開始瘋狂說英文\n請對我說'Speak Chinese'\n\nThank you :)"
+        remessage = "預設使用繁體中文回答\n太久未啟動需先喚醒。\n輸入'模型'可以更換模型\n\n如果我開始瘋狂說英文\n請對我說'Speak Chinese'\n\nThank you  :)"
         line_bot_api.reply_message(event.reply_token,TextSendMessage(remessage))        
     
     elif re.match("模型",message):
@@ -45,7 +45,7 @@ def handle_message(event):
         template=CarouselTemplate( 
             columns=[ 
                 CarouselColumn( 
-                    thumbnail_image_url ="https://github.com/Jung217/groq_line_bot/blob/main/pic/_5523b2f6-6e5c-4535-a110-5dc2f6a173eb.jpg",
+                    thumbnail_image_url ="https://raw.githubusercontent.com/Jung217/groq_line_bot/main/pic/_5523b2f6-6e5c-4535-a110-5dc2f6a173eb.jpg",
                     title = "更換模型", 
                     text ="請選擇一種 Model", 
                     actions =[
@@ -67,8 +67,8 @@ def handle_message(event):
 
     elif re.match("gemma-7b-it",message) or re.match("llama3-8b-8192",message) or re.match("llama3-70b-8192",message) or re.match("mixtral-8x7b-32768",message):
         #mmodel = message
-        remessage = "Model changed."
-        line_bot_api.reply_message(event.reply_token, remessage)
+        #remessage = "Model changed."
+        line_bot_api.reply_message(event.reply_token, "Model changed.")
     else:
         client = Groq(
             api_key="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",
