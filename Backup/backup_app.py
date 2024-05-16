@@ -6,19 +6,17 @@ import re
 import os
 import configparser
 from groq import Groq
-from dotenv import load_dotenv
 
 app = Flask(__name__)
 
 config = configparser.ConfigParser()
 config.read('config.ini')
-load_dotenv()
 
-line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None))
-handler = WebhookHandler(os.getenv('LINE_CHANNEL_SECRET', None))
+line_bot_api = LineBotApi('lSYbbaNCUPI3GcZEak+tnX/4uEJCF/KjOkqXj5DYVQasBdf5NBixX5pr443/fPBQE1Cgf4h05b+fijgHmJ5/gj7blKC4+oHlfFXOAOsxJbmzMYzA6Ts98G37kMch9ppp1ipwDWBDb39exJFdIs0YewdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('9b1a4bc1445da064bf4dd503a44944b7')
 
-line_bot_api.push_message(os.getenv('DEV_UID', None), TextSendMessage(text='You can start !'))
-
+line_bot_api.push_message('U9331f84776672cb357b3b8b9f89ebeaf', TextSendMessage(text='You can start !'))
+#mmodel = "llama3-8b-8192"
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -33,12 +31,10 @@ def callback():
  
     return 'OK'
 
-Lmodel = os.getenv('MMODEL', None)
-
 @handler.add(MessageEvent)
 def handle_message(event):
     message = event.message.text
-    
+
     if re.match("提示",message):
         remessage = "預設使用繁體中文回答\n太久未啟動需先喚醒。\n輸入'模型'可以更換模型\n\n如果我開始瘋狂說英文\n請對我說'Speak Chinese'\n\nThank you  :)"
         line_bot_api.reply_message(event.reply_token,TextSendMessage(remessage))        
@@ -83,7 +79,7 @@ def handle_message(event):
                     "content": message + "，用繁體中文回答",
                 }
             ],
-            model=Lmodel,
+            model="llama3-70b-8192",
         )  
         line_bot_api.reply_message(event.reply_token,TextSendMessage(chat_completion.choices[0].message.content))
 
