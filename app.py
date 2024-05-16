@@ -45,7 +45,7 @@ def handle_message(event):
         template=CarouselTemplate( 
             columns=[ 
                 CarouselColumn( 
-                    thumbnail_image_url ="https://mednote.files.wordpress.com/2019/10/img_1689.jpg",
+                    thumbnail_image_url ="https://github.com/Jung217/groq_line_bot/blob/main/pic/_5523b2f6-6e5c-4535-a110-5dc2f6a173eb.jpg",
                     title = "更換模型", 
                     text ="請選擇一種 Model", 
                     actions =[
