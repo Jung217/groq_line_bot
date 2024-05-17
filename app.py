@@ -78,12 +78,14 @@ def handle_message(event):
 
         chat_completion = client.chat.completions.create(
             messages=[
+                {"role": "system", "content": "用繁體中文回答"},
                 {
                     "role": "user",
                     "content": message + "，用繁體中文回答",
                 }
             ],
             model=Lmodel,
+            temperature=0.8,
         )  
         line_bot_api.reply_message(event.reply_token,TextSendMessage(chat_completion.choices[0].message.content))
 
