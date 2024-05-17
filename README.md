@@ -12,3 +12,7 @@ A Line Bot with Groq API
 * 不確定所有人用一個API會不會互相影響 : 應該不會，每次請求都是獨立的，也因此**無法連續對話**
 * 因為免費，所以太久沒用要喚醒
 * 模型更換還在努力 >:(
+
+## 參考
+* [groq-python/examples/chat_completion.py](https://github.com/groq/groq-python/blob/main/examples/chat_completion.py)
+* [Jung217/Penguin-cat-assistant](Jung217/Penguin-cat-assistant)
