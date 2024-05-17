@@ -85,7 +85,7 @@ def handle_message(event):
                 }
             ],
             model=Lmodel,
-            temperature=0.8,
+            temperature=0.8, #creative
         )  
         line_bot_api.reply_message(event.reply_token,TextSendMessage(chat_completion.choices[0].message.content))
 
