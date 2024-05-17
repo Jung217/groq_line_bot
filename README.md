@@ -9,6 +9,6 @@ A Line Bot with Groq API
 <img src="https://github.com/Jung217/groq_line_bot/assets/99934895/603ed99b-910a-4855-b806-83b6bc00e85b" width=50% height=50%>
 
 ## PS.
-* 不確定所有人用一個API會不會互相影響
+* 不確定所有人用一個API會不會互相影響 : 應該不會，每次請求都是獨立的，也因此**無法連續對話**
 * 因為免費，所以太久沒用要喚醒
 * 模型更換還在努力 >:(
