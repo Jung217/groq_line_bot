@@ -8,6 +8,9 @@ A Line Bot with Groq API
 <img src="https://github.com/Jung217/groq_line_bot/assets/99934895/647f1f89-31f5-4af8-a861-2c5ca7698469" width=50% height=50%>
 <img src="https://github.com/Jung217/groq_line_bot/assets/99934895/603ed99b-910a-4855-b806-83b6bc00e85b" width=50% height=50%>
 
+## deploy
+Render deploy : `export PATH=$PATH:/usr/local/python3/bin && pip install gunicorn && gunicorn app:app`
+
 ## Restricted access
 ![image](https://github.com/Jung217/groq_line_bot/assets/99934895/ad510f17-593f-47b7-a908-6793e16ff29c)
 
@@ -18,4 +21,4 @@ A Line Bot with Groq API
 
 ## 參考
 * [groq-python/examples/chat_completion.py](https://github.com/groq/groq-python/blob/main/examples/chat_completion.py)
-* [Jung217/Penguin-cat-assistant](Jung217/Penguin-cat-assistant)
+* [Jung217/Penguin-cat-assistant](https://github.com/Jung217/Penguin-cat-assistant)
