@@ -8,6 +8,9 @@ A Line Bot with Groq API
 <img src="https://github.com/Jung217/groq_line_bot/assets/99934895/647f1f89-31f5-4af8-a861-2c5ca7698469" width=50% height=50%>
 <img src="https://github.com/Jung217/groq_line_bot/assets/99934895/603ed99b-910a-4855-b806-83b6bc00e85b" width=50% height=50%>
 
+## Restricted access
+![image](https://github.com/Jung217/groq_line_bot/assets/99934895/ad510f17-593f-47b7-a908-6793e16ff29c)
+
 ## PS.
 * 不確定所有人用一個API會不會互相影響 : 應該不會，每次請求都是獨立的，也因此**無法連續對話**
 * 因為免費，所以太久沒用要喚醒
