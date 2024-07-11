@@ -73,7 +73,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage("Model changed."))
     else:
         client = Groq(
-            api_key="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",
+            api_key=os.getenv('groq_api_key', None),
         )
 
         chat_completion = client.chat.completions.create(
