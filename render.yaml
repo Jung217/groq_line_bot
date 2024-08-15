@@ -1,0 +1,23 @@
+# Exported from Render on 2024-08-15T02:36:18Z
+services:
+- type: web
+  name: groq_line_bot
+  runtime: python
+  repo: https://github.com/Jung217/groq_line_bot
+  plan: free
+  envVars:
+  - key: groq_api_key
+    sync: false
+  - key: MMODEL
+    sync: false
+  - key: LINE_CHANNEL_SECRET
+    sync: false
+  - key: LINE_CHANNEL_ACCESS_TOKEN
+    sync: false
+  - key: DEV_UID
+    sync: false
+  region: singapore
+  buildCommand: pip install -r requirements.txt
+  startCommand: export PATH=$PATH:/usr/local/python3/bin && pip install gunicorn &&
+    gunicorn app:app
+version: "1"
