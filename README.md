@@ -14,6 +14,7 @@ A Line Bot with Groq API
 Render deploy : `export PATH=$PATH:/usr/local/python3/bin && pip install gunicorn && gunicorn app:app`
 
 ## Restricted access
+Be careful using you api keys!!
 ![image](https://github.com/Jung217/groq_line_bot/assets/99934895/ad510f17-593f-47b7-a908-6793e16ff29c)
 
 ## PS.
